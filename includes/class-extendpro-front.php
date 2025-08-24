@@ -1,141 +1,105 @@
-<?php
+<?php 
+// Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class WP_ExtendPro_Front {
+/**
+ * Frontend handler for WP ExtendPro Lite
+ * - Enqueues optional styles
+ * - Injects auto footer (Lite Version)
+ */
+class WP_ExtendPro_LiteFront {
 
     public function __construct() {
-        // Shortcodes
-        add_shortcode('extendpro_shortcode', [$this, 'render_shortcode']);
-        add_shortcode('extendpro_hotline', [$this, 'get_hotline']);
-        add_shortcode('extendpro_email', [$this, 'get_email']);
-        add_shortcode('extendpro_banner', [$this, 'get_banner']);
-        add_shortcode('extendpro_info', [$this, 'get_all_info']);
-
-        // Footer hook
-        add_action('wp_footer', [$this, 'maybe_show_footer_info']);
-
-        // Enqueue frontend CSS
+        // Hook CSS (optional)
         add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
 
-        // Admin settings page
-        add_action('admin_menu', [$this, 'add_settings_page']);
-        add_action('admin_init', [$this, 'register_settings']);
+        // Hook Auto Mode → inject footer info
+        add_action('wp_footer', [$this, 'render_auto_footer'], 99);
     }
 
-    // Enqueue CSS
+    /**
+     * Enqueue frontend stylesheet
+     * NOTE: Uncomment if you add a CSS file under assets/css/frontend-style.css
+     */
     public function enqueue_styles() {
-        wp_enqueue_style(
-            'wp-extendpro-frontend', 
-            plugin_dir_url(__FILE__) . '../assets/css/frontend-style.css', 
-            [], 
-            '1.0.0'
-        );
+        // wp_enqueue_style(
+        //     'wp-extendpro-lite',
+        //     WP_EXTENDPRO_URL . 'assets/css/frontend-style.css',
+        //     [],
+        //     '1.0.0'
+        // );
     }
 
-    // Demo shortcode
-    public function render_shortcode($atts = [], $content = null) {
-        return '<div class="extendpro-box">'.__('Hello from WP ExtendPro!', 'wp-extendpro').'</div>';
+    /**
+     * Get hotline from options (fallback: default)
+     */
+    private function get_hotline() {
+        return esc_html( get_option('extendpro_hotline', '+880123456789') );
     }
 
-    // Individual shortcodes
-    public function get_hotline() {
-        return esc_html(get_option('extendpro_hotline', '+880123456789'));
+    /**
+     * Get email from options (fallback: default)
+     */
+    private function get_email() {
+        return esc_html( get_option('extendpro_email', 'info@example.com') );
     }
 
-    public function get_email() {
-        return esc_html(get_option('extendpro_email', 'info@example.com'));
+    /**
+     * Get banner text from options (fallback: default)
+     */
+    private function get_banner() {
+        return esc_html( get_option('extendpro_banner_text', 'Welcome to Our Website!') );
     }
 
-    public function get_banner() {
-        return esc_html(get_option('extendpro_banner_text', 'Welcome to Our Website!'));
+    /**
+     * Render reusable info rows (Hotline, Email, Banner)
+     */
+    private function render_info_rows() {
+        echo '<div class="extendpro-lite-item"><span class="label">Hotline:</span> ' . $this->get_hotline() . '</div>';
+        echo '<div class="extendpro-lite-item"><span class="label">Email:</span> '   . $this->get_email()   . '</div>';
+        echo '<div class="extendpro-lite-item"><span class="label">Banner:</span> '  . $this->get_banner()  . '</div>';
     }
 
-    // Combined info shortcode
-    public function get_all_info() {
-        $hotline = $this->get_hotline();
-        $email   = $this->get_email();
-        $banner  = $this->get_banner();
+    /**
+     * Auto Mode → Render footer block in frontend
+     */
+    public function render_auto_footer() {
+        // Outer container
+        echo '<div class="footer-extendpro-lite" style="background:#222; color:#eee; padding:20px; text-align:center;">';
 
-        return '<div class="extendpro-box extendpro-footer">'
-            . '<span>Hotline:</span> ' . $hotline . ' | '
-            . '<span>Email:</span> ' . $email . ' | '
-            . '<span>Banner:</span> ' . $banner
-            . '</div>';
-    }
+        // Info rows wrapper
+        echo '<div class="extendpro-lite-wrap" style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; align-items:center;">';
+        $this->render_info_rows();
+        echo '</div>';
 
-    // Show in footer only if Auto Mode selected
-    public function maybe_show_footer_info() {
-        $mode = get_option('extendpro_display_mode', 'auto');
-        if ( $mode === 'auto' ) {
-            echo $this->get_all_info();
-        }
-    }
+        // Copyright
+        echo '<div class="site-info-lite" style="margin-top:15px; padding:10px 16px; background:#111; color:#aaa; font-size:13px;">';
+        echo '&copy; ' . date('Y') . ' <span class="site-name">' . esc_html( get_bloginfo('name') ) . '</span>. All Rights Reserved (Lite).';
+        echo '</div>';
 
-    /* --------------------------
-       ADMIN SETTINGS PAGE
-    ---------------------------*/
-    public function add_settings_page() {
-        add_options_page(
-            'ExtendPro Settings',
-            'ExtendPro',
-            'manage_options',
-            'extendpro-settings',
-            [$this, 'render_settings_page']
-        );
-    }
+        echo '</div>';
 
-    public function register_settings() {
-        register_setting('extendpro_settings_group', 'extendpro_display_mode');
-
-        add_settings_section(
-            'extendpro_display_section',
-            'Footer Display Options',
-            function() {
-                echo '<p>Select how ExtendPro info should be displayed in your site footer.</p>';
-            },
-            'extendpro-settings'
-        );
-
-        add_settings_field(
-            'extendpro_display_mode',
-            'Display Mode',
-            [$this, 'display_mode_field'],
-            'extendpro-settings',
-            'extendpro_display_section'
-        );
-    }
-
-    public function display_mode_field() {
-        $value = get_option('extendpro_display_mode', 'auto');
-        ?>
-        <label>
-            <input type="radio" name="extendpro_display_mode" value="auto" <?php checked($value, 'auto'); ?>>
-            <strong>Auto Mode</strong> – Always show in footer automatically.
-        </label><br>
-        <label>
-            <input type="radio" name="extendpro_display_mode" value="shortcode" <?php checked($value, 'shortcode'); ?>>
-            <strong>Shortcode Mode</strong> – Use <code>[extendpro_info]</code> or individual shortcodes manually.
-        </label><br>
-        <label>
-            <input type="radio" name="extendpro_display_mode" value="template" <?php checked($value, 'template'); ?>>
-            <strong>Theme Template Mode</strong> – Add manually in theme footer: 
-            <code>&lt;?php echo do_shortcode('[extendpro_info]'); ?&gt;</code>
-        </label>
-        <?php
-    }
-
-    public function render_settings_page() {
-        ?>
-        <div class="wrap">
-            <h1>ExtendPro Settings</h1>
-            <form method="post" action="options.php">
-                <?php
-                settings_fields('extendpro_settings_group');
-                do_settings_sections('extendpro-settings');
-                submit_button();
-                ?>
-            </form>
-        </div>
-        <?php
+        // Inline styles for hover effects
+        echo '<style>
+            .footer-extendpro-lite .extendpro-lite-item { 
+                display:inline-flex; 
+                gap:6px; 
+                align-items:center; 
+                transition: color 0.3s ease, transform 0.3s ease;
+                cursor:pointer;
+            }
+            .footer-extendpro-lite .label { 
+                font-weight:600; 
+                color:#32cd32; /* Lite version: green accent */
+                transition: color 0.3s ease; 
+            }
+            .footer-extendpro-lite .extendpro-lite-item:hover {
+                color:#fff;
+                transform: scale(1.05);
+            }
+            .footer-extendpro-lite .extendpro-lite-item:hover .label {
+                color:#00ced1; /* cyan hover */
+            }
+        </style>';
     }
 }

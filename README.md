@@ -28,7 +28,7 @@ WP ExtendPro is a lightweight, plug-and-play WordPress plugin that adds a dynami
 
 ## 📹 Live Video Demo
 
-Watch a live demo of WP ExtendPro in action: [Live Video Demo](assets/demo/demo-video.mp4)  
+Watch a live demo of WP ExtendPro in action: [Live Video Demo](assets/demo/wp-extendpro-demo.gif)  
 *(Click the link to see Auto Mode + Dashboard Settings working live)*
 
 ---
@@ -88,9 +88,22 @@ wp-extendpro/                      # Main plugin folder
 
 ## 🖼️ Screenshots
 
-![Admin Settings](assets/screenshots/admin-settings.png)
-![Auto Footer](assets/screenshots/auto-footer.png)
-![Customization Example](assets/screenshots/custom-footer.png)
+### 1️⃣ Admin Settings Page
+Shows the Dashboard UI where you can update Hotline, Email, and Banner text.
+![Admin Settings - Dashboard UI](assets/images/admin-settings.png)
+
+---
+
+### 2️⃣ Auto Footer Mode
+Demo of the automatic footer injected via Auto Mode.
+![Auto Footer Mode](assets/images/auto-footer.png)
+
+---
+
+### 3️⃣ Custom Footer Example
+Example of how the footer can appear when customized.
+![Custom Footer Example](assets/images/custom-footer.png)
+
 
 ---
 
