@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🎉 WP ExtendPro
 
 [![WordPress Plugin](https://img.shields.io/badge/WordPress-6.0+-blue)](https://wordpress.org/)
@@ -33,36 +33,42 @@ Watch a live demo of WP ExtendPro in action: [Live Video Demo](assets/demo/wp-ex
 *(Click the link to see Auto Mode + Dashboard Settings working live)*
 
 ---
-wp-extendpro/                      # Main plugin folder
+```text
+wp-extendpro/                          # Main plugin folder
 │
-├─ assets/                         # Frontend static files (CSS, JS, Images, Demo)
+├─ assets/                             # Frontend static files (CSS, JS, Images, Demo)
 │   ├─ css/
-│   │   └─ frontend-style.css      # Plugin frontend stylesheet
+│   │   ├─ admin-style.css             # Admin dashboard stylesheet
+│   │   └─ frontend-style.css          # Plugin frontend stylesheet
 │   │
 │   ├─ js/
-│   │   └─ frontend-script.js      # Plugin frontend JavaScript
+│   │   └─ admin-script.js             # Plugin frontend JavaScript
 │   │
-│   ├─ images/                     # Screenshots / Preview Images
-│   │   ├─ admin-settings.png      # Screenshot of Admin Settings UI
-│   │   ├─ auto-footer.png         # Preview of Auto Footer mode
-│   │   └─ custom-footer.png       # Preview of Custom Footer mode
+│   ├─ images/                         # Screenshots / Preview Images
+│   │   ├─ admin-settings.png          # Screenshot of Admin Settings Page (Dashboard UI)
+│   │   ├─ auto-footer.png             # Preview of Auto Footer mode
+│   │   └─ custom-footer.png           # Preview of Custom Footer mode
 │   │
 │   └─ demo/
-│       └─ demo-video.mp4          # Demo video of the plugin (for GitHub showcase)
+│       └─ demo-video.mp4              # Demo video showcasing the plugin functionality
 │
 ├─ includes/
-│   └─ class-wp-extendpro-settings.php   # Main settings class (handles Admin Dashboard logic)
+│   ├─ class-admin.php                 # Admin Dashboard logic
+│   ├─ class-front.php                 # Frontend Auto Footer logic (Lite/Basic)
+│   ├─ class-extendpro-front.php       # Frontend Auto Footer logic (Full/Pro)
+│   └─ functions.php                   # Additional helper functions
 │
 ├─ languages/
-│   └─ wp-extendpro.pot             # Translation template file (for i18n/l10n support)
+│   └─ wp-extendpro.pot                # Translation template file (i18n/l10n)
 │
 ├─ templates/
-│   └─ features-section.php         # Frontend template for the features shortcode/section
+│   └─ my-template.php                 # Frontend template for features shortcode/section
 │
-├─ wp-extendpro.php                 # Main plugin bootstrap file (header, hooks, init classes)
-├─ uninstall.php                    # Uninstall script (cleans up plugin data on deletion)
-└─ README.md                        # Plugin documentation (GitHub/WordPress.org details)
+├─ wp-extendpro.php                     # Main plugin bootstrap file (loads classes & hooks)
+├─ uninstall.php                        # Uninstall script (cleans up plugin data)
+└─ README.md                            # Plugin documentation (GitHub/WordPress.org details)
 
+```
 ---
 
 ## 🚀 Installation
@@ -129,7 +135,7 @@ Initial release. Make sure to test on a staging site before activating on produc
 **MahbubShaki**  
 Upwork Profile: [https://upwork.com/freelancers/~015df70a23d7f58180](https://upwork.com/freelancers/~015df70a23d7f58180)  
 Email: mahbubshaki64@gmail.com
-=======
+
 # wp-extendpro
 WP ExtendPro is a lightweight WordPress plugin that adds a dynamic footer with Hotline, Email, and Banner text. Features Auto Mode, Dashboard Settings, fully responsive design, and minimal code for easy customization.
->>>>>>> 380d3c1e021e99ffc0d06a667cdbe4af158be8e8
+
