@@ -1,38 +1,60 @@
-
 # 🎉 WP ExtendPro
 
-[![WordPress Plugin](https://img.shields.io/badge/WordPress-6.0+-blue)](https://wordpress.org/)
-[![PHP Version](https://img.shields.io/badge/PHP-7.4+-orange)](https://www.php.net/)
-[![License](https://img.shields.io/badge/License-GPLv2+-green)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![WordPress Plugin](https://img.shields.io/badge/WordPress-6.0+-blue)](https://wordpress.org/)  
+[![PHP Version](https://img.shields.io/badge/PHP-7.4+-orange)](https://www.php.net/)  
+[![License](https://img.shields.io/badge/License-GPLv2+-green)](https://www.gnu.org/licenses/gpl-2.0.html)  
 
 **Contributors:** MahbubShaki  
 **Tags:** wordpress, plugin, footer, auto mode, settings, admin  
 **Requires at least:** 6.0  
 **Tested up to:** 6.5  
 **Stable tag:** 1.0.0  
-**License:** GPLv2 or later  
+**License:** GPLv2 or later
 
 ---
 
 ## 📌 Description
 
-WP ExtendPro is a lightweight, plug-and-play WordPress plugin that adds a dynamic footer with **Hotline, Email, and Banner text**.
+WP ExtendPro is a lightweight, plug-and-play WordPress plugin that adds a **dynamic footer** with:
 
-✨ **Features:**
-- ⚡ **Auto Mode** → Default values show instantly after plugin activation.
-- 🛠️ **Dashboard Settings** → Admin can edit Hotline, Email, Banner text easily.
-- 🎨 Clean and lightweight code with minimal inline CSS.
-- 📱 Fully responsive footer design.
-- 📝 Ready for templates and further customization.
+- Hotline  
+- Email  
+- Banner text  
+
+✨ **Key Features:**
+- ⚡ **Auto Mode** → Default values show instantly after plugin activation  
+- 🛠️ **Dashboard Settings** → Admin can update content easily  
+- 🎨 Clean, lightweight code with minimal inline CSS  
+- 📱 Fully responsive footer design  
+- 📝 Ready for templates and further customization
 
 ---
 
-## 📹 Live Video Demo
+## 📹 Live Demo
 
-Watch a live demo of WP ExtendPro in action: [Live Video Demo](assets/demo/wp-extendpro-demo.gif)  
+Watch WP ExtendPro in action: [Live Demo](assets/demo/demo-video.mp4)  
 *(Click the link to see Auto Mode + Dashboard Settings working live)*
 
 ---
+
+## 🖼️ Screenshots
+
+### 1️⃣ Admin Settings Page
+Shows the Dashboard UI where you can update Hotline, Email, and Banner text.  
+![Admin Settings - Dashboard UI](assets/images/admin-settings.png)
+
+### 2️⃣ Auto Footer Preview
+Shows the default Auto Mode footer.  
+![Auto Footer](assets/images/auto-footer.png)
+
+### 3️⃣ Custom Footer Example
+Example of a customized footer.  
+![Customization Example](assets/images/custom-footer.png)
+
+---
+
+## 📂 Plugin File Structure
+
 ```text
 wp-extendpro/                          # Main plugin folder
 │
@@ -67,75 +89,48 @@ wp-extendpro/                          # Main plugin folder
 ├─ wp-extendpro.php                     # Main plugin bootstrap file (loads classes & hooks)
 ├─ uninstall.php                        # Uninstall script (cleans up plugin data)
 └─ README.md                            # Plugin documentation (GitHub/WordPress.org details)
-
 ```
 ---
 
 ## 🚀 Installation
 
-1. Upload the `wp-extendpro` folder to the `/wp-content/plugins/` directory.  
-2. Activate the plugin through the 'Plugins' menu in WordPress.  
-3. (Optional) Go to Dashboard → Settings → ExtendPro Settings to customize Hotline, Email, and Banner Text.  
-4. Visit your website footer to see it in action. ✅
+1. Upload the `wp-extendpro` folder to `/wp-content/plugins/`  
+2. Activate the plugin via the **WordPress Plugins** menu  
+3. (Optional) Customize settings via **Dashboard → ExtendPro Settings**  
+4. Visit your website footer to see it in action ✅
 
 ---
 
 ## ❓ Frequently Asked Questions (FAQ)
 
 **Q:** Will this plugin work without configuring anything?  
-**A:** Yes! Auto Mode ensures the footer shows default values immediately after activation. 👍
+**A:** Yes! Auto Mode shows default values immediately after activation. 👍
 
 **Q:** Can I change the content later?  
-**A:** Absolutely. Go to **Settings → ExtendPro Settings** in your dashboard to update values. ✏️
+**A:** Absolutely. Go to **Settings → ExtendPro Settings** in the dashboard. ✏️
 
 **Q:** Is it lightweight?  
-**A:** Yes. Only essential CSS and JS are loaded, minimal impact on page speed. 🚀
-
----
-
-## 🖼️ Screenshots
-
-### 1️⃣ Admin Settings Page
-Shows the Dashboard UI where you can update Hotline, Email, and Banner text.
-![Admin Settings - Dashboard UI](assets/images/admin-settings.png)
-
----
-
-### 2️⃣ Auto Footer Mode
-Demo of the automatic footer injected via Auto Mode.
-![Auto Footer Mode](assets/images/auto-footer.png)
-
----
-
-### 3️⃣ Custom Footer Example
-Example of how the footer can appear when customized.
-![Custom Footer Example](assets/images/custom-footer.png)
-
+**A:** Yes. Minimal CSS/JS ensures fast loading. 🚀
 
 ---
 
 ## 📜 Changelog
 
 ### 1.0.0
-* ✅ Initial release with Auto Mode + Dashboard Settings Page  
-* 📞 Default values for Hotline, Email, Banner  
-* 📱 Fully responsive footer with minimal CSS  
-* ✨ Hover effects for labels and items  
+* Initial release with Auto Mode + Dashboard Settings  
+* Default values for Hotline, Email, Banner  
+* Fully responsive footer with hover effects  
 
 ---
 
 ## ⚠️ Upgrade Notice
 
-Initial release. Make sure to test on a staging site before activating on production.
+Initial release. Test on a staging site before activating on production.
 
 ---
 
 ## 🧑‍💻 Developer
 
 **MahbubShaki**  
-Upwork Profile: [https://upwork.com/freelancers/~015df70a23d7f58180](https://upwork.com/freelancers/~015df70a23d7f58180)  
+Upwork: [Profile](https://upwork.com/freelancers/~015df70a23d7f58180)  
 Email: mahbubshaki64@gmail.com
-
-# wp-extendpro
-WP ExtendPro is a lightweight WordPress plugin that adds a dynamic footer with Hotline, Email, and Banner text. Features Auto Mode, Dashboard Settings, fully responsive design, and minimal code for easy customization.
-
