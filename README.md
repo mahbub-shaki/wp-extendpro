@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎉 WP ExtendPro
 
 [![WordPress Plugin](https://img.shields.io/badge/WordPress-6.0+-blue)](https://wordpress.org/)
@@ -128,3 +129,7 @@ Initial release. Make sure to test on a staging site before activating on produc
 **MahbubShaki**  
 Upwork Profile: [https://upwork.com/freelancers/~015df70a23d7f58180](https://upwork.com/freelancers/~015df70a23d7f58180)  
 Email: mahbubshaki64@gmail.com
+=======
+# wp-extendpro
+WP ExtendPro is a lightweight WordPress plugin that adds a dynamic footer with Hotline, Email, and Banner text. Features Auto Mode, Dashboard Settings, fully responsive design, and minimal code for easy customization.
+>>>>>>> 380d3c1e021e99ffc0d06a667cdbe4af158be8e8
