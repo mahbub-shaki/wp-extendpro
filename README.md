@@ -32,7 +32,7 @@ WP ExtendPro is a lightweight, plug-and-play WordPress plugin that adds a **dyna
 
 ## 📹 Live Demo
 
-Watch WP ExtendPro in action: [Live Demo](assets/demo/demo-video.mp4)  
+Watch WP ExtendPro in action: [Live Demo](assets/demo/wp-extendpro-demo.gif)  
 *(Click the link to see Auto Mode + Dashboard Settings working live)*
 
 ---
