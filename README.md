@@ -1,9 +1,9 @@
 # 🎉 WP ExtendPro
 
-[![WordPress Plugin](https://img.shields.io/badge/WordPress-6.0+-blue)](https://wordpress.org/)  
-[![PHP Version](https://img.shields.io/badge/PHP-7.4+-orange)](https://www.php.net/)  
-[![License](https://img.shields.io/badge/License-GPLv2+-green)](https://www.gnu.org/licenses/gpl-2.0.html)  
-
+[![WordPress Plugin](https://img.shields.io/badge/WordPress-6.0+-blue)](https://wordpress.org/) &nbsp;
+[![PHP Version](https://img.shields.io/badge/PHP-7.4+-orange)](https://www.php.net/) &nbsp;
+[![License](https://img.shields.io/badge/License-GPLv2+-green)](https://www.gnu.org/licenses/gpl-2.0.html)
+ 
 **Contributors:** MahbubShaki  
 **Tags:** wordpress, plugin, footer, auto mode, settings, admin  
 **Requires at least:** 6.0  
